@@ -22,10 +22,15 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt -r requirements-dev.txt
+          pre-commit install
 
       - name: Lint (Black check)
         run: |
           black --check .
+
+      - name: Pre-commit (selected hooks)
+        run: |
+          pre-commit run --all-files
 
       - name: Smoke tests
         run: |

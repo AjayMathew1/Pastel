@@ -1,5 +1,7 @@
 # Pastel Time Tracker (Single-User)
 
+![CI](https://github.com/AjayMathew1/Pastel/actions/workflows/ci.yml/badge.svg)
+
 A simple, local-first time tracker with a pastel, subtly transparent UI. Track activities grouped under larger categories (e.g., Exercise, Reading, Work, Play). View weekly and monthly summaries. Built with FastAPI, SQLite, and Jinja templates.
 
 ## Features (MVP)
@@ -61,3 +63,12 @@ Install dev tools and run basic checks:
 pip install -r requirements-dev.txt
 black --check .
 ```
+
+Set up pre-commit hooks:
+```bash
+pre-commit install
+```
+
+## Screenshots
+
+Add screenshots of the Daily Log, Weekly/Monthly summaries, and charts here.
