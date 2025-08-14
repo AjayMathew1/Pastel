@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block content %}
+
+<section class="glass card pad">
+	<h1 class="h1">Manage Categories</h1>
+	<form class="row gap" method="post" action="/manage/categories/add">
+		<input type="text" name="name" placeholder="Category name" required />
+		<input type="color" name="color_hex" value="#E6E0FF" />
+		<input type="text" name="icon_key" placeholder="Icon (optional)" />
+		<button class="btn primary" type="submit">Add</button>
+	</form>
+
+	<table class="table mt">
+		<thead><tr><th>Name</th><th>Color</th><th>Actions</th></tr></thead>
+		<tbody>
+			{% for c in categories %}
+			<tr>
+				<td>{{ c.name }}</td>
+				<td><span class="chip" style="--chip-bg: {{ c.color_hex }}22; --chip-border: {{ c.color_hex }};">{{ c.color_hex }}</span></td>
+				<td>
+					<form method="post" action="/manage/categories/delete">
+						<input type="hidden" name="category_id" value="{{ c.id }}" />
+						<button class="btn danger" type="submit">Delete</button>
+					</form>
+				</td>
+			</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+</section>
+
+{% endblock %}
+
+

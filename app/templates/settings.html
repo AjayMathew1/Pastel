@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block content %}
+
+<section class="glass card pad">
+	<h1 class="h1">Settings</h1>
+	<form class="grid" method="post" action="/settings">
+		<label>
+			<span>Rounding Mode</span>
+			<select name="rounding_mode">
+				{% for mode in ['none','up','down','nearest'] %}
+				<option value="{{ mode }}" {% if settings.rounding_mode == mode %}selected{% endif %}>{{ mode }}</option>
+				{% endfor %}
+			</select>
+		</label>
+		<label>
+			<span>Rounding Increment (minutes)</span>
+			<input type="number" name="rounding_increment" min="1" max="120" value="{{ settings.rounding_increment }}" />
+		</label>
+		<label>
+			<span>Week Start</span>
+			<select name="week_start">
+				<option value="monday" {% if settings.week_start == 'monday' %}selected{% endif %}>Monday</option>
+				<option value="sunday" {% if settings.week_start == 'sunday' %}selected{% endif %}>Sunday</option>
+			</select>
+		</label>
+		<label>
+			<span>Primary Color</span>
+			<input type="color" name="primary_hex" value="{{ settings.primary_hex }}" />
+		</label>
+		<label>
+			<span>Accent Color</span>
+			<input type="color" name="accent_hex" value="{{ settings.accent_hex }}" />
+		</label>
+		<label>
+			<span>Glass Transparency (%)</span>
+			<input type="number" name="glass_alpha" min="10" max="100" value="{{ settings.glass_alpha }}" />
+		</label>
+		<label>
+			<span>Glass Blur (px)</span>
+			<input type="number" name="glass_blur_px" min="0" max="40" value="{{ settings.glass_blur_px }}" />
+		</label>
+		<div class="row end mt">
+			<button class="btn primary" type="submit">Save</button>
+		</div>
+	</form>
+</section>
+
+{% endblock %}
+
+

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>Pastel Time Tracker</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="/static/styles.css" />
+	<script src="/static/app.js" defer></script>
+	<style>
+		:root {
+			--primary: {{ settings.primary_hex if settings else '#7c83fd' }};
+			--accent: {{ settings.accent_hex if settings else '#E6E0FF' }};
+			--glass-alpha: {{ (settings.glass_alpha / 100) if settings else 0.85 }};
+			--glass-blur: {{ ((settings.glass_blur_px if settings else 12) ~ 'px') }};
+		}
+	</style>
+</head>
+<body>
+	<header class="nav">
+		<div class="container nav-inner glass">
+			<div class="brand">⏱️ Pastel</div>
+			<nav>
+				<a href="/">Daily</a>
+				<a href="/weekly">Weekly</a>
+				<a href="/monthly">Monthly</a>
+				<a href="/charts/daily">Daily Chart</a>
+				<a href="/charts/weekly">Weekly Chart</a>
+				<a href="/charts/monthly">Monthly Chart</a>
+				<a href="/manage/categories">Categories</a>
+				<a href="/manage/activities">Activities</a>
+				<a href="/settings">Settings</a>
+			</nav>
+		</div>
+	</header>
+	<main class="container">
+		{% block content %}{% endblock %}
+	</main>
+</body>
+</html>
+
+

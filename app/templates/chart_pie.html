@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+
+<section class="glass card pad">
+	<h1 class="h1">{{ title }}</h1>
+	<canvas id="pie" width="560" height="360"></canvas>
+	<div id="legend" class="legend mt"></div>
+	<script>
+		window.PIE_DATA = {{ chart_data | tojson }};
+	</script>
+</section>
+
+{% endblock %}
+
+

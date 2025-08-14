@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block content %}
+
+<section class="glass card pad">
+	<h1 class="h1">Monthly Summary</h1>
+	<p class="muted">Month starting {{ month_start }}</p>
+	<div class="grid two">
+		<div>
+			<h3 class="h3">By Category</h3>
+			<table class="table">
+				<thead><tr><th>Category</th><th>Total</th></tr></thead>
+				<tbody>
+					{% for id, name, color, total in category_rows %}
+					<tr>
+						<td><span class="chip" style="--chip-bg: {{ color }}22; --chip-border: {{ color }};">{{ name }}</span></td>
+						<td>{{ total }} min</td>
+					</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+		</div>
+		<div>
+			<h3 class="h3">By Activity</h3>
+			<table class="table">
+				<thead><tr><th>Activity</th><th>Total</th></tr></thead>
+				<tbody>
+					{% for id, name, category_id, total in activity_rows %}
+					<tr>
+						<td>{{ name }}</td>
+						<td>{{ total }} min</td>
+					</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+		</div>
+	</div>
+</section>
+
+{% endblock %}
+
+
