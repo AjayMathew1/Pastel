@@ -31,11 +31,6 @@ app/
   models.py
   schemas.py
   crud.py
-  routers/
-    categories.py
-    activities.py
-    entries.py
-    reports.py
   templates/
     base.html
     index.html
@@ -43,7 +38,26 @@ app/
     monthly.html
     manage_categories.html
     manage_activities.html
+    settings.html
+    chart_pie.html
   static/
     styles.css
     app.js
+  utils/
+    time_utils.py
+.github/
+  workflows/
+    ci.yml
+requirements.txt
+requirements-dev.txt
+README.md
+.gitignore
+```
+
+## Development
+
+Install dev tools and run basic checks:
+```bash
+pip install -r requirements-dev.txt
+black --check .
 ```
